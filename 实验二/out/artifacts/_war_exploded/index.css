@@ -1,0 +1,224 @@
+.loginBg {
+    border-radius: 20px;
+    border:2px solid;
+    border-color: rgb(30,30,30);
+    opacity: 0.5;
+
+    width: 35%;
+    height: 50%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.loginBg2 {
+    border-radius: 20px;
+    border:2px solid;
+    vertical-align:middle;
+    border-color: rgb(50,50,50);
+    opacity: 0.9;
+
+    width: 99.5%;
+    height: 99.5%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.loginBg3 {
+    border-radius: 20px;
+    border:2px solid;
+    vertical-align:middle;
+    border-color: rgb(70,70,70);
+    opacity: 0.9;
+
+    width: 99.5%;
+    height: 99.5%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.loginBg4 {
+    border-radius: 20px;
+    border:2px solid;
+    vertical-align:middle;
+    border-color: rgb(90,90,90);
+    opacity: 0.9;
+
+    width: 99.5%;
+    height: 99.5%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.loginBg5 {
+    border-radius: 20px;
+    border:2px solid;
+    vertical-align:middle;
+    border-color: rgb(110,110,110);
+    opacity: 0.9;
+
+    width: 99.5%;
+    height: 99.5%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.loginBg6 {
+    border-radius: 20px;
+    border:2px solid;
+    vertical-align:middle;
+    border-color: rgb(130,130,130);
+    opacity: 0.9;
+
+    width: 99.5%;
+    height: 99.5%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.loginBg7 {
+    border-radius: 20px;
+    border:2px solid;
+    vertical-align:middle;
+    border-color: rgb(150,150,150);
+    opacity: 0.9;
+
+    width: 99.5%;
+    height: 99.5%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.loginContent {
+    margin: auto;
+    position: absolute;
+    width: 33%;
+    height: 38%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.loginTable {
+    width: 100%;
+    height: 100%;
+    margin:auto;
+    position: relative;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.input_username {
+    width: 70%;
+    height:50px;
+
+    font-size: large;
+    padding-left:10px;
+    color: aliceblue;
+    background: none;
+    border: none;
+
+    background:url(../image/username.png) no-repeat;
+
+    padding: 2px 2px 2px 50px;/*名称输入框*/
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+
+    border-bottom: 1.5px solid rgb(190, 190, 190);
+    border-top:0px;
+    border-left:0px;
+    border-right:0px;
+}
+
+.input_passwd {
+    width: 70%;
+    height:50px;
+
+    font-size: large;
+    padding-left:10px;
+    color: aliceblue;
+    background: none;
+    border: none;
+
+    background:url(../image/passwd.png) no-repeat;
+
+    padding: 2px 2px 2px 50px;/*名称输入框*/
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+
+    border-bottom: 1.5px solid rgb(190, 190, 190);
+    border-top:0px;
+    border-left:0px;
+    border-right:0px;
+}
+
+input::-webkit-input-placeholder { /* WebKit browsers */
+    color: rgb(190, 190, 190);
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: rgb(190, 190, 190);
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: rgb(190, 190, 190);
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: rgb(190, 190, 190);
+}
+
+.button_signUp {
+    width: 35%;
+    height: 40px;
+
+    background-color: white;
+    border-radius: 20px;
+    border-width: 0px;
+    color: deepskyblue;
+}
+
+.button_login {
+    width: 35%;
+    height: 40px;
+
+    background-color: deepskyblue;
+    border-radius: 20px;
+    border-width: 0px;
+    color: white;
+}
+
+.div_button {
+    width: 100%;
+    height:100%;
+    margin: auto;
+    position: absolute;
+    text-align:center
+}
