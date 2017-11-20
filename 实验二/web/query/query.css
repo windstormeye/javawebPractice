@@ -1,0 +1,61 @@
+.bgDiv {
+    width: 70%;
+    height: 80%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: rgb(200, 200, 200);
+    border-radius: 20px;
+    border-color: white;
+    opacity: 0.5;
+}
+
+.userDiv {
+    margin: auto;
+    position: absolute;
+    top: 10%;
+    left: 17%;
+    right: 0;
+    bottom: 0;
+}
+
+.queryDiv {
+    width: 70%;
+    height: 80%;
+    margin: auto;
+    position: absolute;
+    top: 15%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.creatediv {
+    width: 70%;
+    height: 20%;
+
+    border-color: rgb(200, 200, 200);
+    border-radius: 15px;
+    border-width: 2px;
+
+    left: 20%;
+
+    text-align: left;
+}
+
+.queryP {
+    color: white;
+    margin-left: 0%;
+    margin-top: 5%;
+    font-size: 20px;
+}
+
+.labelP {
+    color: white;
+    margin-left: 5%;
+    margin-top: 5%;
+}

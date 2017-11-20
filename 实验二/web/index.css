@@ -100,6 +100,7 @@
 }
 
 .loginBg7 {
+    background-color: rgb(150,150,150);
     border-radius: 20px;
     border:2px solid;
     vertical-align:middle;
@@ -153,7 +154,7 @@
     margin-left:auto;
     margin-right:auto;
 
-    border-bottom: 1.5px solid rgb(190, 190, 190);
+    border-bottom: 1.5px solid white;
     border-top:0px;
     border-left:0px;
     border-right:0px;
@@ -176,23 +177,23 @@
     margin-left:auto;
     margin-right:auto;
 
-    border-bottom: 1.5px solid rgb(190, 190, 190);
+    border-bottom: 1.5px solid white;
     border-top:0px;
     border-left:0px;
     border-right:0px;
 }
 
 input::-webkit-input-placeholder { /* WebKit browsers */
-    color: rgb(190, 190, 190);
+    color: white;
 }
 input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color: rgb(190, 190, 190);
+    color: white;
 }
 input::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: rgb(190, 190, 190);
+    color: white;
 }
 input:-ms-input-placeholder { /* Internet Explorer 10+ */
-    color: rgb(190, 190, 190);
+    color: white;
 }
 
 .button_signUp {
