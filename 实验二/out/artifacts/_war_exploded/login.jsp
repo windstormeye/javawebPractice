@@ -21,6 +21,8 @@
     HashMap map = (HashMap) mapArray.get(0);
     if (map.get("username").equals(nameStr) && map.get("passwd").equals(pawStr)) {
         session.setAttribute("username", nameStr);
+        session.setAttribute("passwd", pawStr);
+        session.setAttribute("type", map.get("type"));
         response.sendRedirect("query/query.jsp");
     } else {
         response.sendRedirect("../index.html");

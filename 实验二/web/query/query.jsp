@@ -18,10 +18,13 @@
     <title>请答题</title>
 </head>
 <body bgcolor="black" background="http://api.dujin.org/bing/1920.php" style="background-size:cover;">
-<%--<body bgcolor="black" style="background-size:cover;">--%>
 <%
-    String nameStr = request.getParameter("username");
-    String pawStr = request.getParameter("passwd");
+    String nameStr = (String) session.getAttribute("username");
+    String pawStr = (String) session.getAttribute("passwd");
+    String typeStr = (String) session.getAttribute("type");
+    if (nameStr.isEmpty() || pawStr.isEmpty()) {
+        response.sendRedirect("../index.html");
+    }
     String sql = null;
     //调用getConn方法与数据库建立连接
     DBbean.getConn("wpj","root","woaiwoziji123");
@@ -29,52 +32,60 @@
     //查询数据库
     ArrayList mapArray = DBbean.executeResult(sql);
 %>
-    <%--<div class="bgDiv"></div>--%>
-    <%--<div class="backDiv">--%>
-        <%--<div class="userDiv">--%>
-            <%--<p style="color: white">欢迎你:<%=(String)session.getAttribute("username")%></p>--%>
-        <%--</div>--%>
-        <%--<h1 style="text-align: center; color: white">答题吧，孩子！</h1>--%>
-    <%--</div>--%>
 </body>
+    <div class="bgDiv"></div>
+
     <%
+     ArrayList answerArr = new ArrayList();
      ArrayList queryArr = new ArrayList();
      for (int i = 0; i < mapArray.size(); i++) {
          HashMap map = (HashMap) mapArray.get(i);
          ArrayList tempArr = new ArrayList();
-         String q_titile = (String)map.get("t_title");
+         String q_titile = (String)map.get("title");
          tempArr.add(q_titile);
-         String q_answer = (String)map.get("t_answer");
+         String q_answer = (String)map.get("answer");
          tempArr.add(q_answer);
-         String q_content = (String)map.get("t_content");
+         String q_content = (String)map.get("content");
          String[] splitString = q_content.split("\\|");
          tempArr.add(splitString);
          queryArr.add(tempArr);
      }
+     out.println("<div class=\"queryDiv\">");
+     if (typeStr.equals("root")) {
+         out.println("<h2>管理员:" + nameStr + "你好" +"</h2>");
+     } else {
+         out.println("<h2>同学:" + nameStr + "你好" +"</h2>");
+     }
      out.println("<form action=\"../answer/answer.jsp\" methon=\"post\">");
-     out.println("<ul>");
+     out.println("<ul style=\"list-style-type:none\">");
      for (int i = 0; i < queryArr.size(); i ++) {
          ArrayList tempArr = (ArrayList) queryArr.get(i);
          out.println("<div class=\"creatediv\">");
          out.println("<li>");
          for (int j = 0; j < tempArr.size(); j++) {
              if (j == 0) {
-                 out.println("<p class=\"queryP\">"+ tempArr.get(j) +"</p>");
+                 out.println("<p class=\"queryP\">"+ i + "、" + tempArr.get(j) +"</p>");
              }
              if (j == 2) {
                  String[] temp = (String[]) tempArr.get(2);
                  for (int k = 0; k < temp.length; k++) {
-                     out.println("<label class=\"labelP\"><input name=\"" + i + "\" type=\"radio\" value=\"" + temp[k] + "\" />"+ temp[k] +"</label>");
+                     out.println("<label class=\"labelP\"><input name=\"" + i + "\" type=\"radio\" value=\""  + temp[k] + "\" />"+ temp[k] +"</label>");
                  }
-             } else {
-                 System.out.println(tempArr.get(j));
+             }
+             if (j == 1){
+                 answerArr.add(tempArr.get(1));
              }
          }
          out.println("</li>");
          out.println("</div>");
      }
      out.println("</ul>");
-     out.println("<input class=\"summitInput\" style=\"color: black\" type=\"submit\" name=\"submit\" value=\"提交答案\">");
+     out.println("<div style=\"text-align:center; bottom: 0;\">");
+     out.println("<input style=\"color: white; width:60%; height:30px; background-color: deepskyblue;\" type=\"submit\" name=\"submit\" value=\"提交答案\">");
+     out.println("</div>");
      out.println("</form>");
+     out.println("</div>");
+
+     session.setAttribute("answer", answerArr);
     %>
 </html>
