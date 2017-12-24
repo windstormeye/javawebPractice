@@ -52,7 +52,7 @@
     out.println("<div class=\"queryDiv\">");
     if (typeStr.equals("root")) {
         out.println("<h2>管理员:" + nameStr + "你好" +"</h2>");
-        out.println("<input type=\"button\" onclick=\"window.location.href='../editQuery/editQuery.jsp'\" value=\"编辑试卷\">");
+        out.println("<input type=\"button\" onclick=\"window.location.href='/editQuery'\" value=\"编辑试卷\">");
     } else {
         out.println("<h2>同学:" + nameStr + "你好" +"</h2>");
     }

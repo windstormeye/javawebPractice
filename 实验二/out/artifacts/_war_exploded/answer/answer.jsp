@@ -12,8 +12,10 @@
 </head>
 <body>
 <%
-    String c1 = "分数为:" + request.getParameter("score");
-    out.println(c1);
+    String c1 = request.getParameter("score");
+    out.println("<div style=\"text-align:center;\">");
+    out.println("<h1>你的分数为：" + c1 + "</h1>");
+    out.println("</div>");
 %>
 </body>
 </html>

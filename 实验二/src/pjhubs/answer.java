@@ -53,8 +53,12 @@ public class answer extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // 表单提交了POST却调了GET，待查看
-        doPost(request, response);
+        if (request.getSession().getAttribute("username") != null) {
+            // 表单提交了POST却调了GET，待查看
+            doPost(request, response);
+        } else {
+            response.sendRedirect("../index.html");
+        }
     }
 
     private Map showParams(HttpServletRequest request) {
