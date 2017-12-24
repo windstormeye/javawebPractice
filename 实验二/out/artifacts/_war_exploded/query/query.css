@@ -14,21 +14,6 @@
     opacity: 0.5;
 }
 
-.queryDiv {
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    background-color: rgb(200, 200, 200);
-    border-radius: 20px;
-    border-color: white;
-}
-
 .userDiv {
     margin: auto;
     position: absolute;
