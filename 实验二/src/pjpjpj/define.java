@@ -1,4 +1,4 @@
-package pjhubs;
+package pjpjpj;
 
 public class define {
     public static final String DB_NAME = "wpj";

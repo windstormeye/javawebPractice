@@ -1,4 +1,4 @@
-package pjhubs;
+package pjpjpj;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,7 +28,7 @@ public class userlogin extends HttpServlet {
             HttpSession session = request.getSession(true);
             session.setAttribute("username", nameStr);
             session.setAttribute("type", map.get("type"));
-            response.sendRedirect("query/query.jsp");
+            response.sendRedirect("/editQuery?type=getQuery&jumpto=query");
         } else {
             response.sendRedirect("../index.html");
         }

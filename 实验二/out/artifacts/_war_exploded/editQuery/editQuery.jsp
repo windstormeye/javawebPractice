@@ -10,7 +10,7 @@
 <%@ page import="java.lang.*" %>
 <%@ page import="java.util.ArrayList" %>
 
-<jsp:useBean id="DBbean" class="pjhubs.DBbean" scope="page"/>
+<jsp:useBean id="DBbean" class="pjpjpj.DBbean" scope="page"/>
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="query/query.css"/>
@@ -29,26 +29,54 @@
                 "<th>功能</th>\n" +
             "</tr>"
     );
+    out.println("<form method=\"post\" action=\" /editQuery \" id=\" saveForm \">");
+    out.println("<input type=\"hidden\" name = \"type\" value=\"saveQuery\">");
     for (int i = 0; i < queryList.size(); i ++) {
         ArrayList singleQueryList = (ArrayList) queryList.get(i);
         out.println("<tr>");
-        out.println("<td>" + singleQueryList.get(0) + "</td>");
+        out.println("<td>" + "<input id=\" btn \" name=\"title" + i + "\"" + "type=\"text\" value=\"" + singleQueryList.get(0) + "\" />"+ "</td>");
         out.println("<td>");
-        String[] singleQueryAnswerString = (String[]) singleQueryList.get(2);
-        for (int j = 0; j < singleQueryAnswerString.length; j++) {
-            out.println("<label><input name=\"" + i + "\" type=\"radio\" value=\""  + singleQueryAnswerString[j] + "\" />"+ singleQueryAnswerString[j] +"</label>");
-        }
+        String singleQueryAnswerString = (String) singleQueryList.get(2);
+        out.println("<input name= \"content" + i + "\"" + " type=\"text\" value=\"" + singleQueryAnswerString + "\" />");
         out.println("</td>");
-        out.println("<td>" + singleQueryList.get(1) + "</td>");
+        out.println("<td>" + "<input name=\"answer" + i + "\"" + " type=\"text\" value=\"" + singleQueryList.get(1) + "\" />"+ "</td>");
         out.println("<td>");
-        out.println("<button type=\"button\">修改</button>\n");
-        out.println("<button type=\"button\">删除</button>\n");
+        out.println("<button type=\"button\" onclick=\" deleteQuery(" + i + " )"+  "\" >删除</button>\n");
         out.println("</td>");
         out.println("</tr>");
     }
+    out.println("</form>");
+    out.println("<tr>");
+    out.println("<td colspan=\"3\">");
+    out.println("<button type=\"button\" onclick=\" addQuery() \" >增加</button>\n");
+    out.println("<button type=\"submit\" form=\" saveForm \">保存</button>\n");
+    out.println("<button type=\"button\" onclick=\" showQuery() \" >预览</button>\n");
+    out.println("<button type=\"button\" onclick=\" pushQuery() \">发布</button>\n");
+    out.println("</td>");
+    out.println("</tr>");
     out.println("</table>");
     out.println("</div>");
 %>
-
 </body>
+<script>
+    function addQuery() {
+        window.location = "/editQuery?type=addQuery";
+    }
+    function saveQuery(title, content, answer) {
+        var url = "/editQuery?type=saveQuery&title=" + title + "&content=" + content + "&answer=" + answer;
+        window.location = url;
+    }
+    function deleteQuery(queryindex) {
+        var url = "/editQuery?type=deleteQuery&index=" + queryindex;
+        window.location = url;
+    }
+    function showQuery() {
+        window.location = "/editQuery?type=showQuery";
+    }
+    function pushQuery() {
+        window.location = "/editQuery?type=pushQuery";
+    }
+
+</script>
+
 </html>

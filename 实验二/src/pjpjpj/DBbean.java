@@ -1,4 +1,4 @@
-package pjhubs;
+package pjpjpj;
 
 import java.sql.*;
 import java.util.*;
@@ -90,6 +90,18 @@ public class DBbean implements java.io.Serializable {
             stmt.executeQuery(sql);
             stmt.close();
             conn.close();
+        }
+        catch(SQLException ex) {
+            System.err.println("aq.executeQuery: " + ex.getMessage());
+        }
+    }
+
+    public void executeUpdate(String sql) {
+        stmt = null;
+        rs=null;
+        try {
+            stmt =conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+            stmt.executeUpdate(sql);
         }
         catch(SQLException ex) {
             System.err.println("aq.executeQuery: " + ex.getMessage());

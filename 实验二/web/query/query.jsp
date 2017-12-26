@@ -9,32 +9,23 @@
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.lang.*" %>
 <%@ page import="java.util.ArrayList" %>
-<jsp:useBean id="DBbean" class="pjhubs.DBbean" scope="page"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="query.css"/>
+    <link rel="stylesheet" type="text/css" href="../query/query.css"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>请答题</title>
 </head>
-<body bgcolor="black" background="http://api.dujin.org/bing/1920.php" style="background-size:cover;">
+<body bgcolor="black" background="../image/bgView.jpg" style="background-size:cover;">
+    <div class="bgDiv"></div>
 <%
     String nameStr = (String) session.getAttribute("username");
     String typeStr = (String) session.getAttribute("type");
+    ArrayList mapArray = (ArrayList) request.getAttribute("mapArray");
     if (nameStr == null) {
         response.sendRedirect("../index.html");
         return;
     }
-    String sql = null;
-    //调用getConn方法与数据库建立连接
-    DBbean.getConn("wpj","root","woaiwoziji123");
-    sql = "select * from t_query";
-    //查询数据库
-    ArrayList mapArray = DBbean.executeResult(sql);
-%>
-<div class="bgDiv"></div>
-
-<%
     ArrayList answerArr = new ArrayList();
     ArrayList queryArr = new ArrayList();
     for (int i = 0; i < mapArray.size(); i++) {
@@ -49,10 +40,11 @@
         tempArr.add(splitString);
         queryArr.add(tempArr);
     }
+
     out.println("<div class=\"queryDiv\">");
     if (typeStr.equals("root")) {
         out.println("<h2>管理员:" + nameStr + "你好" +"</h2>");
-        out.println("<input type=\"button\" onclick=\"window.location.href='/editQuery'\" value=\"编辑试卷\">");
+        out.println("<input type=\"button\" onclick=\"window.location.href='/editQuery?type=getQuery&jumpto=editQuery'\" value=\"编辑试卷\">");
     } else {
         out.println("<h2>同学:" + nameStr + "你好" +"</h2>");
     }
@@ -81,7 +73,7 @@
     }
     out.println("</ul>");
     out.println("<div style=\"text-align:center; bottom: 0;\">");
-    out.println("<button style=\"color: white; width:60%; height:30px; background-color: deepskyblue;\" type=\"submit\">登录</button>\n");
+    out.println("<button style=\"color: white; width:60%; height:30px; background-color: deepskyblue;\" type=\"submit\">提交</button>\n");
     out.println("</div>");
     out.println("</form>");
     out.println("</div>");
